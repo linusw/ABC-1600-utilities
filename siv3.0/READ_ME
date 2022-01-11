@@ -1,0 +1,41 @@
+H{r finns k{llfiler till editorn SIV, version 3.0
+
+Kompilera och l{nka genom att skriva antingen:
+ 
+        make
+
+eller :
+
+        cc f*.c term.c -ltermcap -o <output>
+
+
+Filernas inneh}ll:
+READ_ME    Denna fil.
+
+define.h   Definitioner till siv
+struct.h   Definitioner av datastrukturerna.
+global.h   Globala variabler. "Includad" i f0.c
+f0.c       Main. Kollar endast efter argument till programmet.
+f1.c       Diverse. Mest funktioner f|r att skriva meddelanden p} sk{rmen.
+f2.c       Funktioner f|r att s{tta terminal, samt quit().
+f3.c       Edit(). Initiering. Cmnd_scan().
+f4.c       Textbufferhantering.
+f5.c       De flesta enkla kommandon.
+f6.c       Funktiner f|r att s{tta in ett tecken i textbuffer, samt att
+	   skriva i sk{rmbuffer.
+f7.c       Escape-kommandon, samt CTRL_S och _R. Input(), som l{ser in
+	   en s|kstr{ng eller ett filnamn.
+f8.c       Funktioner f|r att ta bort tecken ur textbuffer.
+f9.c       CTRL_X kommandon, d v s filhanterande.
+f10.c      Funktioner f|r att ber{kna t ex hur mycket plats en rad tar p}
+	   sk{rmen.
+f11.c      Hj{lpfunktionerna, samt funktionen sterm(), som s{tter terminalen
+	   i r{tt mod.
+f12.c      Funktioner f|r att l{sa in tecken, skriva p} sk{rmen, och f|r
+	   makrohanteringen.
+term.c     Termcap-hantering. Terminalrutiner. "Includad" i f2.c
+
+Makefile   Fil till make.
+
+changes    [ndringar sedan version 2.0
+changes2   [ndringar sedan version 2.1

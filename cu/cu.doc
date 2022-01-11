@@ -1,0 +1,86 @@
+
+
+
+NAMN
+	cu - terminal mot annan dator
+
+
+
+SYNTAX
+	cu -l "device" (-s "speed") (-e | -o)
+
+
+
+FUNKTION
+	Cu anv{nds f|r att g|ra en uppkoppling som terminal mot annan 
+	en annan dator. Device som anges vid -l anv{nds som port mot den
+	andra maskinen, ev. via ett modem.
+	Det f}r inte finnas n}gon login-process p} utporten. Den kan i s} 
+	fall tas bort med kommandot disable.
+	Efter start delar sig cu i tv} processer, en s{ndare och en 
+	mottagare som exekverar oberoende av varandra. S{ndaren l{ser fr}n
+	stdin och skriver till porten, mottagaren l{ser porten och skriver
+	till stdout. I det l{get upptr{der cu fullst{ndigt transparent f|r
+	anv{ndaren. Genom att skriva ~ (tilde) f|rst p} en rad kan vissa
+	i s{ndaren inbyggda kommandon aktiveras. P} samma s{tt kan
+	mottagarens beteende {ndras genom att en inkommande rad b|rjar med
+	~. F|ljande kommandon finns inbyggda i s{ndaren:
+
+	~.			Avsluta k|rningen
+
+	~!			G} tillf{lligt till en shell
+
+	~!cmd			Exekvera cmd p} den egna maskinen via sh
+
+	~$cmd			Exekvera cmd p} den egna maskinen, s{nd
+				utdata till andra sidan.
+
+	~%take remote (local)	Kopiera filen "remote" p} den andra maskinen
+				till "local" p} den egna. Fodrar att det {r 
+				tv} Unix-system och att echo (C) och cat (C)
+				finns tillg{ngliga. Om tabbar inte skall 
+				expanderas skall stty tabs f|rst ges till den 
+				andra maskinen.
+
+	~%put local (remote)	Kopiera filen "local" p} den egna maskinen till
+				"remote" p} den andra. Fodrar att det {r tv}
+				Unix-system och att stty (C) och cat (C) {r 
+				tillg{ngliga.
+
+	~~. . . . 		S{nder raden ~. . . .  
+
+	~nostop			Kopplar av Xon/Xoff signalering  
+
+	~stop			Kopplar p} Xon/Xoff signalering
+
+
+	Mottagarprocessen igenk{nner f|ljande sekvenser:
+
+	~>:filnamn		Styr om kopiering av indata fr}n stdout till
+				"filnamn"
+
+	~>>:filnamn		Som ovan men append g|rs till filen
+
+	~>			]terg}ng till stdout
+
+
+	Defaultv{rden vid start av cu {r:
+	hastighet = 1200 baud
+	ingen paritet
+	Xon/Xoff signalering
+	Xon/Xoff kan {ndras med kommando enl. ovan, hastighet och
+	paritet m. optioner vid start
+
+
+
+OPTIONS
+	-s speed	Anger |verf|ringshastighet, max. 9600
+			Split speed med 75 och 1200 baud kan skrivas som
+			-s1275 f|r send = 75, rec = 1200 eller -s7512
+			f|r motsatsen.
+
+
+	-e, -o		J{mn resp. udda paritet
+
+
+	

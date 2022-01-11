@@ -1,0 +1,60 @@
+ta|tand|tandberg TDV2215:\
+	:am:bs:cm=^P%.%.:co#80:li#24:nd=^X:up=\034:cl=^Y:\
+	:ce=10\E[K:cd=50\E[J:so=5\E[7m:se=5\E[m:us=2\E[3m:ue=2\E[m:\
+	:ku=\034:kr=^X:kd=^K:kl=^H:dl=\E[M:ic=\E[@:ei=^U:dc=\E[P:
+sw|switch|intelligent switch:co#80:os:am:
+su|dumb|un|unknown:co#80:os:am:
+la|adm3a|3a|lsi adm3a:\
+	:am:bs:cm=\E=%+ %+ :cl=1^Z:co#80:ho=^^:li#24:ma=^K^P:nd=^L:up=^K:
+l3|adm3|3|lsi adm3:\
+	:am:bs:cl=^Z:li#24:ma=^K^P:co#80:
+T4|43|tty43|model 43 teletype:\
+	:kb=^h:am:bs:hc:os:co#132:
+T7|37|tty37|model 37 teletype:\
+	:bs:hc:hu=\E8:hd=\E9:up=\E7:os:
+d0|vt100n|vt100 w/no init:is@:if@:tc=vt100:
+d1|vt100|vt-100|pt100|pt-100|dec vt100:\
+	:co#80:li#24:am:cl=50\E[;H\E[2J:bs:cm=5\E[%i%2;%2H:nd=2\E[C:up=2\E[A:\
+	:do=2\E[B:ce=3\E[K:cd=50\E[J:so=2\E[7m:se=2\E[m:us=2\E[4m:ue=2\E[m:\
+	:cs=\E[%i%2;%2r:ks=\E[?1h\E=:ke=\E[?1l\E>:\
+	:is=\E>\E[?3l\E[?4l\E[?5l\E[?7h\E[?8h:if=/usr/lib/tabset/vt100:\
+	:ku=\EOA:kd=\EOB:kr=\EOC:kl=\EOD:\
+	:kh=\E[H:k1=\EOP:k2=\EOQ:k3=\EOR:k4=\EOS:pt:sr=5\EM:
+ds|vt100s|vt-100s|pt100s|pt-100s|dec vt100 132 cols 14 lines:\
+	:li#14:tc=vt100w:
+dt|vt100w|vt-100w|pt100w|pt-100w|dec vt100 132 cols:\
+	:co#128:li#24:is=\E>\E[?3h\E[?4l\E[?5l\E[?7h\E[?8h:tc=vt100:
+w0|abc1600w|abc1600 windows:\
+	:am:cl=\E[;H\E[2J:bs:cm=\E[%i%2;%2H:nd=\E[C:up=\E[A:do=\E[B:\
+	:ce=\E[K:cd=\E[J:so=\E[7m:se=\E[m:us=\E[4m:ue=\E[m:\
+	:pt:sr=\EM:BE=^G:CF=\E[?35h:CO=\E[?35l:cs=\E[%i%2;%2r:\
+	:is=\E[?5l\E[?7h\E[?35l:if=/usr/lib/tabset/abc1600:\
+	:ku=\EOA:kd=\EOB:kr=\EOC:kl=\EOD:CN=^X:HP=\EOI:WL=\E[D:WR=\E[C:\
+	:k0=\EOP:k1=\EOQ:k2=\EOR:k3=\EOS:k4=\EOT:k5=\EOU:k6=\EOV:k7=\EOW:\
+	:k8=\EOX:k9=\EOY:l0=PF1:l1=PF2:l2=PF3:l3=PF4:l4=PF5:l5=PF6:l6=PF7:\
+	:l7=PF8:l8=PF9:l9=PF10:
+p0|abc1600p|abc1600 portrait:\
+	:co#80:li#72:tc=abc1600w:
+l0|abc1600l|abc1600 landscape:\
+	:co#80:li#24:tc=abc1600w:
+dv|vt52|dec vt52:\
+	:bs:cd=\EJ:ce=\EK:cl=\EH\EJ:cm=\EY%+ %+ :co#80:li#24:nd=\EC:\
+	:pt:sr=\EI:up=\EA:do=\EB:ku=\EA:kd=\EB:kr=\EC:kl=\ED:
+l1|adm31|31|lsi adm31:is=\Eu\E0:\
+	:al=\EE:am:bs:ce=\ET:cm=\E=%+ %+ :cl=\E*:cd=\EY:co#80:dc=\EW:dl=\ER:\
+	:ei=\Er:ho=^^:im=\Eq:k0=^A0\r:k1=^A1\r:k2=^A2\r:k3=^A3\r:k4=^A4\r:\
+	:k5=^A5\r:k6=^A6\r:k7=^A7\r:k8=^A8\r:k9=^A9\r:kd=^J:kl=^H:kr=^L:ku=^K:\
+	:li#24:ma=j^Jk^P^K^Pl ^R^L^L :mi:nd=^L:\
+	:se=\EG0:so=\EG1:up=^K:us=\EG1:ue=\EG0:
+t0|twi72n|twi72 w/no init:is@:if@:tc=twi72:
+t1|twi72|facit twist portrait:\
+	:co#80:li#72:tc=twist:
+d0|twistn|twist w/no init:is@:if@:tc=twist:
+d1|twist|facit twist landscape:\
+	:co#80:li#24:am:cl=50\E[;H\E[2J:bs:cm=5\E[%i%2;%2H:nd=2\E[C:up=2\E[A:\
+	:do=2\E[B:ce=3\E[K:cd=50\E[J:so=2\E[7m:se=2\E[m:us=2\E[4m:ue=2\E[m:\
+	:dm=:ed=:dc=\E[P:dl=\E[M:al=\E[L:im=\E[4h:ei=\E[4l:\
+	:cs=\E[%i%2;%2r:ks=\E[?1h\E=:ke=\E[?1l\E>:CF=\E[?35h:CO=\E[?35l:\
+	:is=\E>\E[?3l\E[?4l\E[?5l\E[?7h\E[?8h\E[?35l:if=/usr/lib/tabset/vt100:\
+	:ku=\EOA:kd=\EOB:kr=\EOC:kl=\EOD:CN=\E[K:LD=\E[M:ko=dc,al,im:\
+	:kh=\E[H:k1=\EOP:k2=\EOQ:k3=\EOR:k4=\EOS:pt:sr=5\EM:

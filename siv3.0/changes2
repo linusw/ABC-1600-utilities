@@ -1,0 +1,263 @@
+[ndringar sedan version 2.1
+DATUM; SIGNATUR; FIL; FUNKTION EL DYL; BESKRIVNING
+
+850919; HN; f7.c; input(); [ndrad f|r att bli mindre och f|r att klara
+	CTRL_Q.
+
+850919; HN; f7.c; file_legal(); chr {ndrad till &chrp.
+
+850919; HN; f7.c; str_legal(); [ndrad f|r att klara CTRL_Q.
+
+850919; HN; f12.c; prints(); [ndrad f|r att kunna skriva ut kontrolltecken.
+
+850920; HN; f0.c; Ny flagga -x
+
+850920; HN; global.h; no_ctrl_Q_S; Ny variabel.
+
+850920; HN; f3.c; init(); Till{gg av satsen "if (no_ctrl_Q_S)..."
+
+850920; HN; f3.c; cmnd_scan(); Nytt "case CTRL_AA:"
+
+850920; HN; f1.c; not_imp(); Borttagen.
+
+850920; HN; f3.c, cmnd_scan(); f5.c, ctrl_X(); f7.c, escape(); not_imp()
+	ersatt med pr_msg( NO_IMP, NULL)
+
+850920; HN; f3.c; init(); raden "*(space + row_len ) = ' ' ;" borttagen.
+
+850920; HN; f1.c; printable(); <=127 {ndrat till <=126
+
+850920; HN; f5.c; ctrl_N() och ctrl_P(); [ndrade till att kalla p} down()
+	respektive up(), och taga hand om u_arg sj{lva.
+
+850920; HN; f4.c; insert(); Avkortad.
+
+850920; HN; f4.c; get_row(); Andra if-else-satsen avkortad.
+
+850920; HN; struct.h, define.h; free_p deklareras ej l{ngre. F|ljande 
+	definitioner inf|rda ist{llet:
+	#define free_p row_p
+	#define area_p row
+
+850920; HN; global.h; free_f slopad. Ers{tts av free_r
+
+850920; HN; f4.c; get_row(); Den fria raden l{nkas p} annat s{tt (andra
+	avdelningen av funktionen)
+
+850920; HN; f4.c; append(); free_f {ndrat till free_r
+
+850920; HN; f4.c; new(); free_f {ndrat till free_r
+
+850926; HN; f4.c; new_f_p(); Borttagen. Ers{tts av new_l_p()
+
+850926; HN; f4.c; free_alloc(); Borttagen. Ers{tts av row_alloc()
+
+850926; HN; f9.c; save_file(); Fr}gar ej om den skall s{tta till en eoln
+	i slutet ifall det {r en panic-save.
+
+850926; HN; f8.c; pr_down(); [ndrad f|r att klara l}nga rader vid sk{rmslut.
+
+850926; HN; f5.c; ctrl_E(); Sista raden {ndrad till test_redraw(), som g|r
+	samma sak.
+
+850926; HN; f5.c; ctrl_T(); Villkoret i f|rsta if-satsen f|renklat.
+
+850926; HN; f6.c; pr_row(); [ndrad f|r att ej skriva ut DEL. 
+	"c>31 && c<127" ersatt av printable(c)
+
+850927; HN; f5.c; ctrl_T(); [ndrad f|r att klara kontrolltecken och TABar.
+
+850927; HN; f5.c; isdigit(); Borttagen.
+
+850927; HN; f5.c; ctrl_U(); "isdigit(c)" {ndrat till "(c>='0' AND c<='9')"
+
+850927; HN; f6.c; outstr(); Till{gg i villkoret av "+strlen(string)"
+
+850927; HN; f11.c; sterm(); Nollst{ller {ven ICRNL
+
+850930; HN; f12.c; read_char(); S{tter terminalen i ~ICRNL mod vid ctrl_Q.
+	Raden "while ( no_ctrl_Q_S..." insatt.
+
+850930; HN; f2.c; set_term(); St{nger ej av xon/xoff vid -x flaggan.
+
+850930; HN; f7.c; f_search(), compare(), ctrl_R(); [ndrade f|r att klara
+	av att leta efter radskiften. (Mest compare()).
+
+850930; HN; f2.c; quit(); G|r save_fname().
+
+851002; HN; f9.c; bckup_file(); S{tter samma mode p} backupfilen som p}
+	originalet.
+
+851002; HN; f7.c; int_to_str(); Borttagen. Raden d{r den anv{nds {ndrad.
+
+851002; HN; f12.c; printd(); Borttagen
+
+851002; HN; f12.c; int_to_str(); Ny funktion.
+
+851002; HN; f12.c; pr_b_row(); [ndrad till att anv{nda prints() och
+	int_to_str() ist{llet f|r printd()
+
+
+851002; HN; f9.c; read_macros(); [ndrad till att anv{nda prints() och
+	int_to_str() ist{llet f|r printd()
+
+851003; HN; f3.c; Ny cmnd_scan(). Anropet dit {ndrat.
+
+851003; HN; f7.c, f3.c; Ny escape() i f3.c
+
+851003; HN; f5.c, f3.c; Ny ctrl_X() i f3.c
+
+851003; HN; f12.c; Ny read_char()
+
+851003; HN; f12.c; get_char(); Ny funktion
+
+851003; HN; global.h; m_arg, in_macro, cmnd_start; Nya
+	variabler.
+
+851003; HN; f3.c; init(); Initieringar av de nya variablerna.
+
+851003; HN; define.h; MACR_E; Ny konstant
+
+851003; HN; f1.c; Nytt felmeddelande "Faulty macro"
+
+851003; HN; f5.c; ctrl_U(); [ndrad i slutet.
+
+851003; HN; f5.c; back(); Ny funktion
+
+851003; HN; f5.c; ctrl_B(); [ndrad till att anropa back()
+
+851003; HN; f5.c; forward(); NY funktion
+
+851003; HN; f5.c; ctrl_F(); [ndrad till att anropa forward()
+
+851003; HN; f7.c; esc_F(); [ndrad till att anv{nda forward()
+
+851003; HN; f7.c; esc_F(); [ndrad till att anv{nda back() och forward()
+
+851003; HN; f8.c; delete(); [ndrad till att anropa back() och ctrl_D()
+
+851004; HN; f12.c; del_adjust_mark(); Ny och flyttad till f8.c
+
+851004; HN; f8.c; pr_down(); Inget argument till funktionen l{ngre. [ven
+	{ndrat i anropen till funktionen i f5.c ... f9.c
+
+851004; HN; f7.c; vt100_cur() flyttad till vt100_keys i f3.c
+
+851004; HN; f3.c; vt100_keys() {ndrad f|r att klara nya makroprocessorn
+	och alternativet 'HELP' ( ESC O J )
+
+851004; HN; f11.c; help(); Ny funktion
+
+851004; HN; define.h; HELP; Ny konstant
+
+851004; HN; f1.c; Nytt meddelande "Do you want help about..."
+
+851004; HN; f1.c; Ut|kat hj{lpmeddelandet fr}n Query replace med '!'
+
+851004; HN; f7.c; q_rplce(); [ndrad f|r att klar alternativet '!' och
+	f|r att kunna byta ut radskiften.
+
+851004; HN; f5.c; new_line(); Ett litet till{gg i m{rkeshanteringen.
+
+851004; HN; f5.c; new_line_action(); Ny funktion, mestadels ur gamla 
+	new_line().
+
+851004; HN; f5.c; new_line(); [ndrad till att anropa new_line_action().
+
+851004; HN; f5.c; up(), down(); [ndrade till att inte skriva om sk{rmen
+	sj{lva.
+
+851004; HN; f5.c; ctrl_N(), ctrl_P(); [ndrade efter nya up() och down().
+
+851007; HN; f5.c; ctrl_X_X(); [ndrad f|r att fungera r{tt.
+
+851007; HN; f6.c; add_char_action(); [ndrad s} att mark_b_inx blir r{tt.
+
+851007; HN; f9.c; ins_file(); S{tter in filen vid mark|ren ist{llet f|r
+	f|re raden.
+
+851007; HN; f9.c; readfile(); Justerar mark_b_row.
+
+851011; HN; f10.c; adj_col(); [ndrad f|r att ta hand om fallet col>scr_len.
+
+851011; HN; f5.c; ctrl_V(), up(), down(); Anropet till adj_col() {ndrat
+
+851011; HN; f7.c; bck_wdw(); Anropet till adj_col() {ndrat
+
+851015; HN; f5.c; ctrl_T(); Skriver om sk{rmen p} r{tt s{tt.
+
+851127; HN; f9.c; readable(); "if (S_ISDIR( ..." borttagen.
+
+851203; HN; f2.c; set_sig(); Ny funktion f|r att inte tappa bort texten d}
+	man trycker QUIT eller INT i en subshell.
+
+851203; HN; f0.c; main(); Anrop till set_sig(ON).
+
+851203; HN; f9.c; subshell(); Anrop till set_sig(OFF).
+			      R{tt prompt f|r root vid ett kommando.
+
+851206; HN; f2.c; initterm(); Raden 'dump()'
+
+851206; HN; f9.c; subshell(); Felutskrifter borttagna.
+
+851206; HN; f2.c; set_term(), reset_term(), term(); Borttagna
+	sterm(); Ny funktion f|r att s{tta terminalmoden.
+
+851206; HN; f11.c; Filen slopad och ersatt av nya funktionen sterm i f2.c
+
+851206; HN; f0.c; Argumenthanteringen lagd f|rst.
+
+851206; HN; f12.c, get_char(); f4.c, panic_exit(); f9.c, wr_exit(),
+	subshell(); f2.c, initterm(), quit(); Anropen till set_term(),
+	sterm() och reset_term() {ndrade till sterm() med l{mpliga argument.
+
+851206; HN; f12.c, print_ewd(); Texten "V2.2" {ndrad till "V3.0"
+
+851209; HN; f7.c; input(); [ndrad f|r att klara editeringskommandon.
+	Alla anrop till input() (i f7.c och f9.c) {ndrade.
+
+851210; HN; f8.c; delete(); [ndrad f|r att taga hand om fallet med cursorn i
+	|vre v{nstra h|rnet p} sk{rmen, och vid b|rjan av filen.
+
+851210; HN; f5.c; ctrl_U(); Utskriften p} sk{rmen gjord snyggare.
+
+851210; HN; f1.c; clr_msg(); Borttagen.
+	f2.c, f7.c, f9.c: Alla "clr_msg()" {ndrade till pr_msg(0)
+
+851210; HN; f9.c; wr_exit(); Raden "dump()"
+
+851210; HN; f4.c; row_alloc(), txt_alloc(); Anropen till malloc() och calloc()
+	{ndrade till sbrk().
+
+851210; HN; f5.c; this_row(); [ndrad i slutet f|r att f} riktig utskrift p}
+	sk{rmen d} antalet sk{rmrader minskar.
+
+851210; HN; f7.c; top_file(); [ndrad f|r att klara av fallet med |versta raden
+	p} sk{rmen.
+
+851211; HN; f8.c; del_adjust_mark(); [ndrad f|r att g|ra r{tt
+
+851211; HN; f8.c; ctrl_K(), ctrl_D(); [ndrade f|r att ge r{tt tot_len till
+	del_adjust_mark()
+	
+851211; HN; f7.c; q_rplce(); [ndrad f|r att ge r{tt tot_len till
+	del_adjust_mark()
+
+851211; HN; f7.c; q_rplce(); Visar ej {ndringarna vid alternativet '!'
+
+851211; HN; f5.c; new_l_action(); M{rkeshanteringen r{ttad
+
+851211; HN; f8.c; test_rewrite_eop(); Slopad och insatt i ctrl_D() ist{llet.
+
+851211; HN; f5.c; new_l_action(); [ndrad s} att den bara skriver ut om en
+	flagga {r satt.
+
+851211; HN; term.c; Hela filen kraftigt reviderad. Funktionen cclrrest() har
+	bytt namn till clearrest(). Anropen till denna funktion i |vriga filer
+	{ndrade. Nya funktioner standout() och standend().
+
+851211; HN; f12.c; print_ewd(); Raderna "if (vt100)..." {ndrade till
+	"standout();" respektive "standend();"
+
+860409; HN; f3.c; vt100_keys(); [ndrad f|r att ta ESC [ ... som oskiftade
+	pilar och ESC O ... som skiftade pilar.

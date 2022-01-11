@@ -1,0 +1,34 @@
+MITHRIL MJUKVARA 85-11-16
+
+	Denna version av PAINT ger samtliga texter p} engelska eller
+	svenska beroende p} v{rdet hos environment variabeln LANGUAGE.
+	
+	Om inga fel uppt{cks kan denna version betraktas som den slutgilitiga
+	f|r produktion. F|rutom PAINT {r converter, pdriver samt sys och 
+	user dokumentation uppdaterad.
+	
+	Det som dock b|r l|sas p} ett b{ttre s{tt {r rutinerna f|r utskrift 
+	(converter/pdriver). Pga en bugg i 1600:an kan ej det vanligen
+	brukliga f|rfarandet med spoolern anv{ndas f|r utskrift av bilder
+	utan man tvingas |ppna printerdevicet som en fil och arbeta direkt
+	mot detta. Inte ens med detta f|rfarandet skrivs bilderna ut helt
+	felfritt. Den st|rsta nackdelen med detta s{tt att skriva ut bilder
+	{r att anv{ndaren tvingas st{lla om printern mellan utskift av bilder
+	och text. Jag har inte skrivit n}got om detaljerna kring utskrift i
+	v}rt f|rslag till anv{ndardokumentation d} jag ej vet hur ni
+	slutgiltigt kommer att l|sa detta problem.
+	
+	
+MITHRIL MJUKVARA 85-12-12
+
+	Vissa sm{rre buggar med f|nsterhanterarinteraktionen har r{ttats
+	i samr}d med P.Andersson, DIAB.
+
+Henrik Norbeck, Nokia-Luxor Information systems 86-04-10
+
+	F|ljande filer {ndrade:
+	cmd3.c, pdriver.c, converter.c
+
+	En testversion av pdriver: pdriver2.c
+
+	Anv{nder lpr ist{llet f|r pdriver

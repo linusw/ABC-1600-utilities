@@ -1,0 +1,367 @@
+
+1        Paint 
+
+The program used to create and modify pictures is called paint.  A suitable
+place to put the executable program is on /usr/bin. 
+
+Paint is dependant of one other program, converter, which is assumed to
+reside on /usr/bin. If converter is placed somewhere else you must change
+the initiation of path for execl in unit cmd3.c, module print().
+
+If paint is given the switch -nw it does not open it's own window (you
+probably want this possibility when starting paint from wsh).  When used
+with -nw, paint wants a window with double line border, no boxes, and of
+maximimum possible size.
+
+The latest object versions of the compilation units are stored in an archive
+file; /usr/lib/libpaint.a, for easy linking (cc -s -lpaint -o
+/usr/bin/paint).
+
+
+
+1.1      Compilation units
+
+The program is divided into five compilation units:
+
+  windows     -  This unit contains the main module and all routines that 
+                 handle windows and/or icons.
+	     
+  cmd1, cmd2  -  These units contain all the routines for pencil, line etc.
+  
+  cmd3        -  This unit contains all routines for load, save, print etc.
+  
+  others      -  This unit contains support routines needed in other units.
+
+If you try to reorganize the modules between the compilation units, be aware
+of the fact that some global variables and functions are declared as static
+and therefore can not be accessed in other units.
+
+
+
+1.1.1    windows 
+
+
+
+1.1.1.1  main_window()
+
+This module opens the large background window and redirects standard input
+and output to it. It is used by main if the -nw switch is not given.
+
+
+
+1.1.1.2  icon_control()
+
+This module is activated on interrupt when an icon is selected. It
+determines which icon it was and takes appropriate actions before control is
+returned.
+
+
+
+1.1.1.3  paper_window()
+
+This module opens the "paper" as a window and locks it on the top level. It
+is used by main and icon_edit().
+
+
+
+1.1.1.4  mkicons(...)
+
+This is a support module used to define an icon. It is used by
+command_icons().
+
+
+
+1.1.1.5  command_icons()
+
+This module prints and defines all command icons. It is used by main().
+
+
+
+1.1.1.6  color_icons()
+
+This module prints and defines all "color" icons. It is used by main().
+
+ 
+   
+1.1.1.7  window_open()
+
+This module opens a small window at the bottom of the screen. It is used by
+text(), new(), save(), load(), merge(), print() and stop_program().
+
+
+
+1.1.1.8  window_close()
+
+This module closes the small window opened by window_open(). It is used by
+text(), new(), save(), load(), merge() and print().
+
+
+
+1.1.1.9  change_mouse_pointer()
+
+This module changes the chape of the pointer to a nice cross.  It is used by
+main().
+
+
+
+1.1.1.10 icon_edit()
+
+This module takes care of the icon edit facility. It is used by icon_control()
+
+
+
+1.1.1.11 main()
+
+The first part of main takes care of opening windows etc. The second part is
+a never ending loop that sends a request for mouse position, reads the
+answer and then, if the button is pressed, calls the selected routine.
+
+There are two types of commands in paint. The first type is commands
+represented by the icons in the upper half (pencil .. paint) of the icon
+menu. These commands are "selected" until another icon in the upper half
+region is chosen. These are the icons that are activated from the loop in
+main().
+
+The other type of commands is the one represented by the icons in the lower 
+half (undo .. exit). These commands are never "selected". They are executed
+immediately when the icon is pressed. This is done from icon_control().
+
+
+
+1.1.2    cmd1
+
+
+
+1.1.2.1  pencil()
+
+This routine takes care of the pencil facility. It is used by main().
+
+
+
+1.1.2.2  line()
+
+This routine takes care of the line facility. It is used by main().
+
+
+
+1.1.2.3  box()
+
+This routine takes care of the box facility. It is used by main().
+
+
+
+1.1.2.4  fill_box()
+
+This routine takes care of the fill_box facility. It is used by main().
+
+
+
+1.1.2.5  paint_box()
+
+This routine takes care of the paint_box facility. It is used by main().
+
+
+
+1.1.3    cmd2
+
+
+
+1.1.3.1  frame()
+
+This routine takes care of the frame facility. It is used by main().
+
+
+
+1.1.3.2  circle()
+
+This routine takes care of the circle facility. It is used by main().
+
+
+
+1.1.3.3  text()
+
+This routine takes care of the text facility. It is used by main().
+
+
+
+1.1.3.4  copy()
+
+This routine takes care of the copy facility. It is used by main().
+
+
+
+1.1.3.5  paint()
+
+This routine takes care of the paint facility. It is used by main().
+
+
+
+1.1.4    cmd3
+
+
+
+1.1.4.1  undo()
+
+This routine takes care of the undo facility. It is used by icon_control.
+
+
+
+1.1.4.2  redo()
+
+This routine takes care of the redo facility. It is used by icon_control.
+
+
+
+1.1.4.3  new()
+
+This routine takes care of the "new" facility. It is used by icon_control.
+
+
+
+1.1.4.4  save()
+
+This routine takes care of the save facility. It is used by icon_control.
+
+
+
+1.1.4.5  load()
+
+This routine takes care of the load facility. It is used by icon_control.
+
+
+
+1.1.4.6  merge()
+
+This routine takes care of the merge facility. It is used by icon_control.
+
+
+
+1.1.4.7  print()
+
+This routine takes care of the print facility. It is used by icon_control.
+
+
+
+1.1.4.8  stop_program()
+
+This routine takes care of the exit facility. It is used by icon_control.
+
+
+
+1.1.5    others
+
+
+
+1.1.5.1  get_language()
+
+This routine read LANGUAGE from env and initiates the variabels language and
+font.
+
+
+1.1.5.1  init_storage()
+
+This routine initiates the area used to record the picture history. It is used
+by main().
+
+
+
+1.1.5.2  cput()
+
+This routine puts a character in the picture history. It is used by almost
+all commands.
+
+
+
+1.1.5.3  sput()
+
+This routine puts a string in the picture history. It is used by almost all
+commands.
+
+
+
+1.1.5.4  draw_inv_box()
+
+This routine handles the inverting box used to mark an area. It is used by
+box(), paint_box(), fill_box(), frame(), circle() and copy().
+
+
+
+1.1.5.5  draw_box()
+
+This routine draws a colored box. It is used by box() and  fill_box().
+
+
+
+1.1.5.6  draw_inv_cross()
+
+This routine handles the printing of the cross and/or trace coordinates. It
+is used by almost all commands.
+
+
+
+1.1.5.7 move_to_file()
+
+This routine dumps the picture history to a file. In the beginning of the
+file a "dummy" move is inserted. It gives other programs information about the
+size of the picture. It is used by save().
+
+
+
+1.1.5.8  move_from_file()
+
+This routine first skips any dummy move it finds and then loads the file
+into the picture history area. It is used by load() and merge().
+
+
+
+1.2      Variable dictionary
+
+
+cross		INTEGER		flag: cross=0 => no cross  no trace
+				      cross=1 =>    cross  no trace
+				      cross=2 => no cross     trace
+				      cross=3 =>    cross     trace
+
+cross_buffer 	CHAR[]		contains control sequences for cross
+
+cross_blen	INTEGER		length of cross_buffer
+
+icon_mode	INTEGER		flag: if 0 normal mode else icon mode
+
+mouse		CHAR[]		contains last mouse position
+
+mouseln		INTEGER		length of mouse
+
+paper		INTEGER		file pointer to paper window
+
+saved		INTEGER		flag: if 0 picture not saved else saved
+
+window		INTEGER         file pointer to small window (opened by
+				open_window ). 0 if closed.
+
+xmax		INTEGER		highest legal x position
+
+ymax		INTEGER		highest legal y position
+
+
+
+
+2        converter
+
+Converter is started from paint by an execl call. Data dumped from the
+screen is sent through a pipe to it. Converter takes the "bitdump" and
+transforms it to printer control sequences. Thereafter it writes them to
+/dev/lp.
+
+If you have a "bitdump" from some other application than paint, converter
+can still be used to print it.
+The syntax for converter is:  converter xmax ymax [outfile] <dumpfile
+
+
+
+3        pdriver
+
+Pdriver is never used by the paint program. You can use it to print a file
+saved in printable form (using the print facility in paint). Pdriver sends
+it's output directly to /dev/lp.
+The syntax is: pdriver printfile
