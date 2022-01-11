@@ -1,0 +1,32 @@
+
+
+NAMN
+	FX80dmp - |vers{tter sk{rmdumps - bitmap till FX80 grafik
+
+SYNTAX
+	FX80dmp [infil] [-o utfil] [-c]
+
+FUNKTION
+	\vers{tter sk{rmdumps - bitmap till styrkoder f|r Epson FX80
+	grafik. Sk{rmdumpen skall vara av den typ som erh}lles med option -p
+	till wpictrd kommandot (d.v.s. med header). Som infil anv{ndes den
+	angivna eller om ingen angetts stdinput, som utfil den till -o angivna
+	eller om ingen angetts stdoutput. 
+
+OPTIONS
+	-o "utfil" namn p} utfil
+
+	-c centrera bilden p} papperet (endast p} bredden)
+
+ANM[RKNING
+	Observera att om hela sk{rmen skall l{sas s} m}ste processen h}lla 
+	kanal 3 |ppen till f|nsterhanteraren (terminalxxx:.....:super i .wd 
+	filen).
+
+	Printerdata kan som vanligt inte skrivas ut direkt utan m}ste k|ras
+	genom ett interface-program. D{rf|r beh|vs system-V lpr och lpd samt
+	/usr/lib/lpdpar/lpdtable och /usr/lib/lpdpar/lpdhandler/epson.
+
+	I lpdtable m}ste minst finnas en rad med f|ljande utseende: lp epson
+
+	Programmet {r avsett f|r portr{ttmod.
